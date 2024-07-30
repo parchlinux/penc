@@ -1,0 +1,22 @@
+import * from "std"
+main(args)
+{
+    if len(args)==3 :
+        if {
+            args[0] == "e"{
+                $tar cv {args[1]} | openssl enc -e -aes256 -iter 12 -pass "pass:{args[2]}"  | zstd -19 --threads=6  > file.penc$ failed{
+                    echo "error in encrypt"
+                    exit(0)
+                }
+                echo "you can rename file.penc to enything"
+            }
+            args[0]=="d":
+            $cat {args[1]} | zstd -d | openssl enc -d -aes256 -iter 12 -pass "pass:{args[2]}" | tar xvf -$ failed {
+                echo "Failed to decrypt file"}
+            else:
+                echo "wrong input"
+        }
+    else:
+        echo "args be need like \npenc \{e,d\} <input> <pass>"
+    
+}
